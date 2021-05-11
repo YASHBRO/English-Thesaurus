@@ -1,0 +1,17 @@
+{% extends 'base.html' %} 
+
+{% block word %}{{word}}{% endblock word %} 
+
+{% block list %}
+<ul>
+  {% for meaning in definitions %}
+  <div class="container my-4">
+    <li><h6>{{meaning.meaning}}</h6></li>
+    <ul>
+      <li>{{meaning.part_of_speech}}</li>
+      <li>{{meaning.example}}</li>
+    </ul>
+  </div>
+  {% endfor %}
+</ul>
+{% endblock list %}
