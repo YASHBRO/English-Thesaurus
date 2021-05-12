@@ -7,7 +7,8 @@ from main_function import Test
 def main(request):
     if request.method == "GET":
         word=(request.GET.get('search'))
-        if word != '' and word != None:
+        if str(word).strip() != '' and word != None:
+            word= str(word).strip()
             content= Test().dummy(word)
             content['line'] = True
             print(word, len(word))
