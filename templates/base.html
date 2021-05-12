@@ -22,7 +22,7 @@
       style="background-color: #4f429e; width: 100%"
     >
       <div class="container-fluid justify-content-center px-0">
-        <a class="navbar-brand text-center">
+        <a class="navbar-brand text-center" href="/">
           <img src="static\logo.png" alt="LOGO" height="75%" width="75%"
         /></a>
       </div>
@@ -30,11 +30,12 @@
 
     <div class="container justify-content-center my-5 w-50">
       <form action="" method="GET">
+      {% csrf_token %}
         <div class="form-group">
           <input
             class="form-control form-control-lg text-center"
-            name="SearchBar"
-            id="SearchBar"
+            name="search"
+            id="search"
             aria-describedby="SearchBar"
             placeholder="Search your word here"
           />
@@ -44,8 +45,7 @@
           <button
             type="submit"
             class="btn btn-primary btn-lg"
-            name="SearchBtn"
-            id="SearchBtn"
+            id="search_btn"
           >
             Search
           </button>
@@ -53,19 +53,11 @@
       </form>
     </div>
 
-    <hr
-      style="
-        width: 75%;
-        margin: auto;
-        margin-bottom: 20px;
-        color: rgb(0, 0, 82);
-        height: 2px;
-      "
-    />
-
     <div class="container" style="margin-bottom: 30px">
       <h3 class="text-center">{% block word %}{% endblock word %}</h3>
     </div>
+
+    {% block hr %}{% endblock hr %}
 
     <div
       class="container"

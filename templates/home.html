@@ -1,6 +1,21 @@
 {% extends 'base.html' %} 
 
-{% block word %}{{word}}{% endblock word %} 
+{% block word %}{{word}}{% endblock word %}
+
+
+{% block hr %}
+{% if line %}
+<hr
+  style="
+    width: 75%;
+    margin: auto;
+    margin-bottom: 20px;
+    color: rgb(0, 0, 82);
+    height: 2px;
+  "
+/>
+{% endif %}
+{% endblock hr %}
 
 {% block list %}
 <ul>

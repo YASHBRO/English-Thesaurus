@@ -1,29 +1,29 @@
-import json
-from difflib import get_close_matches
+class Test:
+    def __init__(self):
+        pass
 
-data = json.load(open("data.json"))
-
-def translate(w):
-    w = w.lower()
-    if w in data:
-        return data[w]
-    elif len(get_close_matches(w, data.keys())) > 0:
-        yn = input("Did you mean %s instead? Enter Y if yes, or N if no: " % get_close_matches(w, data.keys())[0])
-        if yn == "Y":
-            return data[get_close_matches(w, data.keys())[0]]
-        elif yn == "N":
-            return "The word doesn't exist. Please double check it."    
-        else:
-            return "We didn't understand your entry."
-    else:
-        return "The word doesn't exist. Please double check it."
-
-word = input("Enter word: ")
-
-output = translate(word)
-
-if type(output) == list:
-    for item in output:
-        print(item)
-else:
-    print(output)
+    def dummy(self,word):
+        content = {
+        "word" : "Include",
+        "definitions" : [{
+            "part_of_speech" : "verb" ,
+            "meaning" : "This is meaning of 1st" ,
+            "example" : "This is example of 1st"
+        } ,
+        {
+            "part_of_speech" : "noun" ,
+            "meaning" : "This is meaning of 2nd" ,
+            "example" : "This is example of 2nd"
+        },
+        {
+            "part_of_speech" : "adjective" ,
+            "meaning" : "This is meaning of 3rd" ,
+            "example" : "This is example of 3rd"
+        },
+        {
+            "part_of_speech" : "pronoun" ,
+            "meaning" : "This is meaning of 4th" ,
+            "example" : "This is example of 4th"
+        }] ,
+    }
+        return content
